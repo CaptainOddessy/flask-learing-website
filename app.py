@@ -1,11 +1,45 @@
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
 
+JOBS =[
+    {
+        'id': 1,
+        'title': 'Python Developer',
+        'location': 'New York',
+        'salary': '$100,000'},
+    {
+      'id': 2,
+      'title': 'Software Engineer',
+      'location': 'London'
+      
+    },
+    {
+      'id': 3,
+      'title': 'Data Analyst',
+      'location': 'San Francisco',
+      'salary': '$80,000'
+    },
+    {
+      'id': 4,
+      'title': 'Web Developer',
+      'location': 'Berlin',
+      'salary': '$90,000'
+    },
+    {
+      'id': 5,
+      'title': 'Machine Learning Engineer',
+      'location': 'Bangalore',
+      'salary': '$150,000'
+    }
+
+]
+
 @app.route('/')
 def hello_world():
-  return "hello mahabub"
+  return render_template('index.html', 
+                         jobs = JOBS)
 
 
 if __name__ == "__main__":
